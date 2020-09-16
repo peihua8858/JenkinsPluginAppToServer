@@ -1,0 +1,30 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout"
+         xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+    <!--
+      This Jelly script is used to produce the global configuration option.
+
+      Jenkins uses a set of tag libraries to provide uniformity in forms.
+      To determine where this tag is defined, first check the namespace URI,
+      and then look under $JENKINS/views/. For example, <f:section> is defined
+      in $JENKINS/views/lib/form/section.jelly.
+
+      It's also often useful to just check other similar scripts to see what
+      tags they use. Views are always organized according to its owner class,
+      so it should be straightforward to find them.
+    -->
+    <f:section title="App上传服务设置">
+        <f:entry title="上传服务器地址" field="uploadServiceIp"
+                 description="输入上传服务器地址加端口号,(输入日志服务器IP地址即可)，如：10.32.5.200:8090">
+            <f:textbox default="10.32.5.200:8090" value="10.32.5.200:8090"/>
+        </f:entry>
+        <f:entry title="下载服务器地址" field="downloadServiceIp"
+                 description="输入下载Apk服务器地址加端口号(输入Jenkins服务器IP地址即可)，如：10.32.5.200:8080">
+            <f:textbox/>
+        </f:entry>
+        <f:entry title="Jenkins 归档成品job目录" field="jenkinsJob"
+                 description="输入Jenkins归档job目录。默认Android为/jenkins/job/,iOS 为/job/">
+            <f:textbox default="/jenkins/job/"/>
+        </f:entry>
+    </f:section>
+</j:jelly>

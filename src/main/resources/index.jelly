@@ -1,0 +1,4 @@
+<?jelly escape-by-default='true'?>
+<div>
+    支持iOS和Android应用在打包完成后将应用数据（及安装包）上传到日志服务器，供内部测试扫码下载使用
+</div>

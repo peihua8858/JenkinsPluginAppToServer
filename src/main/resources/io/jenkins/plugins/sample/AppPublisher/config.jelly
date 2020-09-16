@@ -1,0 +1,38 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
+    <f:entry title="编译类型(可选)" field="buildType"
+             description="输入项目编译类型,默认develop类型，如：Release 或者develop等,如未设置，
+             则匹配参数化构建类型buildType（或build_type忽略大小写）,若匹配失败则apk路径构建类型">
+        <f:textbox/>
+    </f:entry>
+    <f:entry title="IPA/APK文件(可选)" field="appPath" description="">
+        <f:textbox/>
+    </f:entry>
+    <f:entry title="排除APK/IPA文件名 " field="exIncludesPattern">
+        <f:textbox default="**/*unaligned*.apk,**/*unsigned*.apk"/>
+    </f:entry>
+    <f:entry title="App安装包文件上传" field="isUploadAppFile"
+             description="是否将Apk文件上传到服务器,默认不上传,或者通过参数化构建类型uploadAppFile(或者upload_app_file忽略大小写)">
+        <f:checkbox/>
+    </f:entry>
+    <f:entry title="多语言文案上传" field="isUploadMultiLanguage"
+             description="是否将App 多语言文案上传到服务器,默认不上传，
+             或者通过参数化构建类型uploadMultiLanguage(或者upload_multi_language忽略大小写)">
+        <f:checkbox/>
+    </f:entry>
+    <f:entry title="多语言文案目录筛选 " field="includesStringPattern">
+        <f:textbox default="**/app/**"/>
+    </f:entry>
+    <!--    <f:entry title="项目别名" field="projectAlias">-->
+    <!--        <f:textbox/>-->
+    <!--    </f:entry>-->
+    <!--    <f:entry title="Git远程仓库用户名" field="gitUserName">-->
+    <!--        <f:textbox/>-->
+    <!--    </f:entry>-->
+    <!--    <f:entry title="Plist远程地址" field="plistRemote">-->
+    <!--        <f:textbox/>-->
+    <!--    </f:entry>-->
+    <!--    <f:entry title="Plist远程地址凭证" field="credentialsId">-->
+    <!--        <c:select/>-->
+    <!--    </f:entry>-->
+</j:jelly>

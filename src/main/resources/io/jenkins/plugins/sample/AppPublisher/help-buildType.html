@@ -1,0 +1,9 @@
+<div>
+    输入项目编译类型(可不填)，用于区分是测试、预发布、或者正式环境,优先取输入内容。<br>
+    如果为空， 则匹配参数化构建类型buildType（或build_type，忽略大小写）<br>
+    详情见<a href="https://wiki.jenkins.io/display/JENKINS/Parameterized+Build"> Parameterized Builds documentation</a>。<br>
+    若匹配失败，则IOS匹配Adhoc：<key>ProvisionedDevices</key>（或者Inhouse：<key>ProvisionsAllDevices</key>），<br>
+    若无法匹配则默认为develop。<br>
+    Android则默认匹配apk编译路径（仅包含develop、debug、deploy、release），<br>
+    匹配apk路径规则，如：Demo/184/artifact/app/build/outputs/apk/google/develop/Demo.apk，则匹配到develop构建类型<br>
+</div>
