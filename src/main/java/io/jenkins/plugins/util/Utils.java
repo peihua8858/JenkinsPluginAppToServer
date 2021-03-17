@@ -70,13 +70,10 @@ public class Utils {
      */
     public static String getBuildType(boolean isIOSPlatform, String oriBuildType, String buildType, File apkFile) {
         if (StringUtils.isNotEmpty(buildType)) {
-            return buildType;
+            return buildType.trim();
         }
         if (isIOSPlatform) {
-            return oriBuildType;
-        }
-        if (apkFile == null) {
-            return buildType;
+            return oriBuildType.trim();
         }
         return getBuildType(apkFile);
     }
@@ -92,7 +89,7 @@ public class Utils {
      */
     private static String getBuildType(File apkFile) {
         File file = apkFile.getParentFile();
-        return file.getName();
+        return file.getName().trim();
     }
 
     /**

@@ -54,15 +54,14 @@ public class AppPublisher extends Recorder {
     private boolean paramUploadAppFile;
 
     @DataBoundConstructor
-    public AppPublisher(boolean isUploadMultiLanguage, boolean isUploadAppFile, String buildType,
-                        String appPath,
+    public AppPublisher(boolean isUploadMultiLanguage, boolean isUploadAppFile, String buildType, String appPath,
                         String exIncludesPattern, String includesStringPattern) {
         this.isUploadAppFile = isUploadAppFile;
-        this.exIncludesPattern = exIncludesPattern;
-        this.appPath = appPath;
-        this.buildType = buildType;
+        this.exIncludesPattern = exIncludesPattern.trim();
+        this.appPath = appPath.trim();
+        this.buildType = buildType.trim();
         this.isUploadMultiLanguage = isUploadMultiLanguage;
-        this.includesStringPattern = includesStringPattern;
+        this.includesStringPattern = includesStringPattern.trim();
         parsers.put("apk", new ApkParser());
         parsers.put("ipa", new IpaParser());
     }
@@ -119,6 +118,9 @@ public class AppPublisher extends Recorder {
                             || "BuildConfiguration".equalsIgnoreCase(name)) {
                         //参数控制编译类型
                         paramBuildType = Utils.toString(value, buildType);
+                        if (!StringUtils.isEmpty(paramBuildType)) {
+                            paramBuildType = paramBuildType.trim();
+                        }
                     } else if ("upload_multi_language".equalsIgnoreCase(name)
                             || "uploadMultiLanguage".equalsIgnoreCase(name)) {
                         //参数控制是否上传多语言
@@ -177,8 +179,7 @@ public class AppPublisher extends Recorder {
         }
 
         public FormValidation doCheckUploadServiceIp(@QueryParameter String value, @QueryParameter boolean useFrench) throws IOException, ServletException {
-            if (value.length() == 0)
-                return FormValidation.error("error");
+            if (value.length() == 0) return FormValidation.error("error");
             if (!Utils.isIpAddressPort(value)) {
                 return FormValidation.error("输入格式不正确，正确格式应该如：10.32.5.200:8080");
             }
@@ -188,8 +189,7 @@ public class AppPublisher extends Recorder {
         public FormValidation doCheckDownloadServiceIp(@QueryParameter String value,
                                                        @QueryParameter boolean useFrench) throws IOException,
                 ServletException {
-            if (value.length() == 0)
-                return FormValidation.error("error");
+            if (value.length() == 0) return FormValidation.error("error");
             if (!Utils.isIpAddressPort(value)) {
                 return FormValidation.error("输入格式不正确，正确格式应该如：10.32.5.200:8080");
             }
@@ -250,7 +250,8 @@ public class AppPublisher extends Recorder {
 //            return new StandardListBoxModel()
 //                    .includeEmptyValue()
 //                    .includeMatchingAs(
-//                            context instanceof Queue.Task ? Tasks.getAuthenticationOf((Queue.Task) context) : ACL.SYSTEM,
+//                            context instanceof Queue.Task ? Tasks.getAuthenticationOf((Queue.Task) context) : ACL
+//                            .SYSTEM,
 //                            context,
 //                            StandardUsernameCredentials.class,
 //                            URIRequirementBuilder.fromUri(plistRemote).build(),

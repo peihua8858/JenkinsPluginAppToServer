@@ -112,7 +112,7 @@ public class ServiceClient {
             params.put("file", new File(filePath));
             params.put("versionName", appBean.getVersionName());
             params.put("versionCode", appBean.getVersionCode());
-            params.put("buildType", appBean.getBuildType());
+            params.put("buildType", appBean.getBuildType().trim());
             params.put("platform", appBean.getPlatform());
             serviceApi.uploadAppFile(params, new HttpCallback<HttpResponse<String>>() {
                 @Override
