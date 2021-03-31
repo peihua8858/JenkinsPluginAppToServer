@@ -15,11 +15,11 @@
     -->
     <f:section title="App上传服务设置">
         <f:entry title="上传服务器地址" field="uploadServiceIp"
-                 description="输入上传服务器地址加端口号,(输入日志服务器IP地址即可)，如：10.32.5.200:8090">
-            <f:textbox default="10.32.5.200:8090" value="10.32.5.200:8090"/>
+                 description="输入上传服务器地址加端口号,(输入日志服务器IP地址即可)，如：10.35.4.254:8090">
+            <f:textbox value="10.35.4.254:8090"/>
         </f:entry>
         <f:entry title="下载服务器地址" field="downloadServiceIp"
-                 description="输入下载Apk服务器地址加端口号(输入Jenkins服务器IP地址即可)，如：10.32.5.200:8080">
+                 description="输入下载Apk服务器地址加端口号(输入Jenkins服务器IP地址即可)，如：10.35.4.254:8080">
             <f:textbox/>
         </f:entry>
         <f:entry title="Jenkins 归档成品job目录" field="jenkinsJob"
