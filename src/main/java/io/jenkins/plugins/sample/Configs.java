@@ -27,7 +27,7 @@ public class Configs {
     /**
      * 下载APP安装包地址
      */
-    public static final String URL_DOWNLOAD_IP = "10.32.5.200:8080";
+    public static final String URL_DOWNLOAD_IP = "10.8.31.5:8080";
     /**
      * IOS Jenkins Job目录
      */

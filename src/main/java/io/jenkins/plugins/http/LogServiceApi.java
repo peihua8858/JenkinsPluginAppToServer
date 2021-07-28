@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 /**
  * 日志服务器Api
- * 接口文档: http://10.32.5.200:8090/doc.html#/home
+ * 接口文档: http://10.8.31.5:8090/doc.html#/home
  *
  * @author dingpeihua
  * @version 1.0
@@ -19,7 +19,7 @@ public interface LogServiceApi {
     /**
      * 上传服务器地址
      */
-    String URL_UPLOAD_IP = "10.32.5.200:8090";
+    String URL_UPLOAD_IP = "10.8.31.5:8090";
     /**
      * 上传服务器地址
      */

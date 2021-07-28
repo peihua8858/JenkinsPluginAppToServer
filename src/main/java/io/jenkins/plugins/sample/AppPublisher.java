@@ -181,7 +181,7 @@ public class AppPublisher extends Recorder {
         public FormValidation doCheckUploadServiceIp(@QueryParameter String value, @QueryParameter boolean useFrench) throws IOException, ServletException {
             if (value.length() == 0) return FormValidation.error("error");
             if (!Utils.isIpAddressPort(value)) {
-                return FormValidation.error("输入格式不正确，正确格式应该如：10.32.5.200:8080");
+                return FormValidation.error("输入格式不正确，正确格式应该如：10.8.31.5:8080");
             }
             return FormValidation.ok();
         }
@@ -191,7 +191,7 @@ public class AppPublisher extends Recorder {
                 ServletException {
             if (value.length() == 0) return FormValidation.error("error");
             if (!Utils.isIpAddressPort(value)) {
-                return FormValidation.error("输入格式不正确，正确格式应该如：10.32.5.200:8080");
+                return FormValidation.error("输入格式不正确，正确格式应该如：10.8.31.5:8080");
             }
             return FormValidation.ok();
         }
