@@ -41,7 +41,14 @@ public class AppBean {
      */
     private String plistUrl;
     private Long serverId;
-
+    /**
+     * 编译描述
+     */
+    private String buildDescription;
+    /**
+     * APP安装包渠道名称
+     */
+    private String flavor;
     public String getProjectName(String nameAlias) {
         return StringUtils.isEmpty(nameAlias) ? projectName : nameAlias;
     }

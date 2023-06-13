@@ -186,6 +186,7 @@ public class UploadHelper {
         AppBean appBean = null;
         File tmpArchive = null;
         try {
+            listener.println("Plugin>>>Description:" + build.getDescription());
             listener.println("Plugin>>filename : " + filename);
             listener.println("Plugin>>projectName : " + projectName);
             listener.println("Plugin>>rootDir : " + rootDir);
@@ -206,6 +207,8 @@ public class UploadHelper {
             boolean isIOSPlatform = "ios".equalsIgnoreCase(appBean.getPlatform());
             appBean.setFilePath(remoteFilePath);
             appBean.setBuildNumber(build.number);
+            appBean.setFlavor(appPublisher.getFlavorName());
+            appBean.setBuildDescription(build.getDescription());
             appBean.setBuildType(Utils.getBuildType(isIOSPlatform,
                     appBean.getBuildType(), appPublisher.checkBuildType(),
                     new File(remoteFilePath)));

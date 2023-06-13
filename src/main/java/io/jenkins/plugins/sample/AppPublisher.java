@@ -50,6 +50,10 @@ public class AppPublisher extends Recorder {
     public String appPath;
     public String jenkinsJob;
     private String paramBuildType;
+    /**
+     * APP安装包渠道名称
+     */
+    private String flavorName;
     private boolean paramUploadMultiLanguage;
     private boolean paramUploadAppFile;
 
@@ -74,6 +78,10 @@ public class AppPublisher extends Recorder {
     @DataBoundSetter
     public void setDownloadServiceIp(String downloadServiceIp) {
         this.downloadServiceIp = downloadServiceIp;
+    }
+
+    public String getFlavorName() {
+        return flavorName;
     }
 
     public boolean isUploadAppFile() {
@@ -129,6 +137,8 @@ public class AppPublisher extends Recorder {
                             || "uploadAppFile".equalsIgnoreCase(name)) {
                         //参数空是否上传app安装文件
                         paramUploadAppFile = Utils.toBoolean(value, isUploadAppFile);
+                    } else if ("Channel".equalsIgnoreCase(name)) {
+                        flavorName = Utils.toString(value, "Google");
                     }
                 }
             }
@@ -137,6 +147,7 @@ public class AppPublisher extends Recorder {
         listener.getLogger().println("Plugin>>>paramBuildType:" + paramBuildType);
         listener.getLogger().println("Plugin>>>paramUploadAppFile:" + paramUploadAppFile);
         listener.getLogger().println("Plugin>>>paramUploadMultiLanguage:" + paramUploadMultiLanguage);
+        listener.getLogger().println("Plugin>>>flavorName:" + flavorName);
         uploadServiceIp = descriptor.uploadServiceIp;
         downloadServiceIp = descriptor.downloadServiceIp;
         jenkinsJob = descriptor.jenkinsJob;
