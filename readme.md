@@ -24,7 +24,7 @@
         安装插件如图：
 |   插件安装示例      | 
 |:----------------------:|
-| ![](images/image1.jpg) |
+| ![](images/image1.png) |
 
 ### 3、插件系统级配置
    系统级配置位于Jenkins下 系统管理(Manage Jenkins)>系统设置(Configure System)>App上传服务设置:
@@ -32,11 +32,11 @@
   如下图所示：
 |   Android配置示例      | 
 |:----------------------:|
-| ![](images/image2.jpg) |
+| ![](images/image2.png) |
 
 |   iOS配置示例          | 
 |:----------------------:|
-| ![](images/image3.jpg) |
+| ![](images/image3.png) |
      ①上传服务器地址：配置日志系统IP地址加端口即可，此项位防止日志系统IP地址变动而设
      ②下载服务器地址：配置当前Jenkins打包系统IP地址加端口即可，如果不配置，则默认取日志服务器IP地址，IOS因打包服务器不同，此项必须配置
      ③Jenkins 归档成品job目录：输入Jenkins归档job目录。默认Android为/jenkins/job/,iOS 为/job/。
@@ -50,11 +50,11 @@
 如下图所示：
 |   Android配置示例      | 
 |:----------------------:|
-| ![](images/image4.jpg) |
+| ![](images/image4.png) |
 
 |   iOS配置示例      | 
 |:----------------------:|
-| ![](images/image5.jpg) |
+| ![](images/image5.png) |
      ①编译类型：优先取设置内容，对于IOS 可以不填，插件将默认读取plist文件中的ProvisionedDevices（Adhoc）和ProvisionsAllDevices（Inhouse），对于Android，如果不设置，将取
            包路径下的父一级目录作为编译类型（即如果包路径为app/build/outputs/apk/google/develop/Zaful.apk，则编译类型为develop）。
      ②IPA/APK文件(可选)：要上传到服务器的文件的路径。 可以使用“module/dist/**/*.ipa”之类的通配符。 如果未指定，则默认模式为“**/*.ipa,**/*.apk”，即将递归搜索其找到的任何IPA和APK。 有关确切格式，请参见Ant文件集的@includes。 基本目录是工作空间。
